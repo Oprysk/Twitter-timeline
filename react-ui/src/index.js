@@ -9,11 +9,11 @@ import {syncHistoryWithStore} from 'react-router-redux'
 import {Router, Route, browserHistory} from 'react-router'
 import {Provider} from 'react-redux'
 
-import reducers from 'reducers'
-import Layout from 'containers/layout'
-import Phones from 'containers/phones'
-import Phone from 'containers/phone'
-import Basket from 'containers/basket'
+import reducers from './app/reducers'
+import Layout from './app/containers/layout'
+import Phones from './app/containers/phones'
+import Phone from './app/containers/phone'
+import Basket from './app/containers/basket'
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(thunk)

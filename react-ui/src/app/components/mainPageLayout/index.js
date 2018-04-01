@@ -7,7 +7,7 @@ import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+import { mailFolderListItems } from './tileData';
 import { compose } from 'redux';
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
@@ -143,8 +143,6 @@ class MainPageLayout extends Component {
                     </div>
                     <Divider />
                     <List className={classes.list}>{mailFolderListItems}</List>
-                    <Divider />
-                    <List className={classes.list}>{otherMailFolderListItems}</List>
                 </div>
 
             </Drawer>

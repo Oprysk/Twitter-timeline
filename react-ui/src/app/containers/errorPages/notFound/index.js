@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { login } from "actions";
 import { connect } from "react-redux";
 class NotFound extends Component {
 
@@ -16,8 +15,5 @@ const mapStateToProps = state => {
         isLogin: state
     }
 };
-const mapDispatchToProps = {
-    login
-};
-export default connect(mapStateToProps, mapDispatchToProps)(NotFound)
+export default connect(mapStateToProps)(NotFound)
 

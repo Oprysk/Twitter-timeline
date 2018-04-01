@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
-import {createUser} from "actions";
+import {fetchUsers} from "actions";
 import {connect} from "react-redux";
 
 
@@ -12,10 +12,10 @@ class CreateUserForm extends Component  {
         this.state = {
             userName: ''
         };
-        this.createUser = this.createUser.bind(this);
+        this.fetchUsers = this.fetchUsers.bind(this);
 
     }
-    createUser(){
+    fetchUsers(){
         console.log(this.name.value);
         this.props.createUser(
             {
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    createUser
+    fetchUsers
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateUserForm);

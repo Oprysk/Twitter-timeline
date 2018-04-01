@@ -14,6 +14,7 @@ import Layout from './app/containers/layout'
 import Phones from './app/containers/phones'
 import Phone from './app/containers/phone'
 import Basket from './app/containers/basket'
+import Dashboard from './app/containers/dashboard'
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(thunk)
@@ -26,6 +27,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route component={Layout}>
         <Route path='/' component={Phones}/>
+        <Route path='/dashboard' component={Dashboard}/>
         <Route path='/categories/:id' component={Phones}/>
       </Route>
       <Route path='/phones/:id' component={Phone}/>

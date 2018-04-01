@@ -1,38 +1,19 @@
 {
-  "name": "timeline-react-ui",
+  "name": "react-ui",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "react-scripts": "^1.1.0"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "cross-env": "^5.1.4",
-    "material-ui": "^1.0.0-beta.30",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "node-sass-chokidar": "0.0.3",
-    "ramda": "^0.23.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.4",
-    "react-router": "3.0.5",
-    "react-router-redux": "^4.0.8",
-    "redux": "^3.6.0",
-    "redux-devtools-extension": "^2.13.0",
-    "redux-thunk": "^2.2.0",
-    "superagent": "^3.5.2"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "scripts": {
-    "start": "cross-env NODE_PATH=src/ react-scripts start && watch-css",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
-  },
-  "engines": {
-    "node": "8.9.x",
-    "npm": "5.6.x"
+    "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000"
 }

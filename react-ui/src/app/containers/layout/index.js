@@ -1,22 +1,13 @@
 import React from 'react'
 
-import Sidebar from '../../components/sidebar'
 import Header from '../../components/header'
+import MainPageLayout from '../../components/mainPageLayout'
 import Footer from '../../components/footer'
 
 const Layout = ({children}) => (
     <div className='view-container'>
         <Header />
-        <div className='container'>
-            <div className='row'>
-                <div className='col-md-3'>
-                    <Sidebar />
-                </div>
-                <div className='col-md-9'>
-                    {children}
-                </div>
-            </div>
-        </div>
+        <MainPageLayout component={children} />
         <Footer />
     </div>
 )

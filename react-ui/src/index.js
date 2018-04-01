@@ -11,10 +11,8 @@ import {Provider} from 'react-redux'
 
 import reducers from './app/reducers'
 import Layout from './app/containers/layout'
-import Phones from './app/containers/phones'
-import Phone from './app/containers/phone'
-import Basket from './app/containers/basket'
 import Dashboard from './app/containers/dashboard'
+import NotFound from './app/containers/notFound'
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(thunk)
@@ -26,12 +24,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route component={Layout}>
-        <Route path='/' component={Phones}/>
-        <Route path='/dashboard' component={Dashboard}/>
-        <Route path='/categories/:id' component={Phones}/>
+        <Route path='/' component={Dashboard}/>
       </Route>
-      <Route path='/phones/:id' component={Phone}/>
-      <Route path='/basket' component={Basket} />
+        <Route path='*' component={NotFound}/>
     </Router>
   </Provider>,
   document.getElementById('root')

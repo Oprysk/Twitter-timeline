@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import UsersTweetsForm from "../../components/userTweetsForm";
+import ExpansionPanel from '../../components/expansionPanel'
 
 class Dashboard extends Component {
     componentDidMount () {
@@ -8,7 +10,7 @@ class Dashboard extends Component {
 
     render () {
         return (
-            <h1>Test</h1>
+            <ExpansionPanel title={'Users Tweets'} component={<UsersTweetsForm />} />
         )
     }
 }

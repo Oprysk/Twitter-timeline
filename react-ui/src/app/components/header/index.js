@@ -8,7 +8,7 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import classNames from "classnames";
-// import {toggleNavMenu} from "actions";
+import {toggleNavMenu} from "../../actions";
 import {withStyles} from "material-ui/styles/index";
 
 
@@ -55,12 +55,12 @@ const styles = theme => ({
         };
 
         handleDrawerOpen = () => {
-            // this.props.toggleNavMenu(true);
+            this.props.toggleNavMenu(true);
         };
 
     render() {
         const { classes } = this.props;
-        const isMenuOpen = true //this.props.navMenu.isOpen;
+        const isMenuOpen = this.props.navMenu.isOpen;
         return (
             <div className={classes.appFrame}>
          
@@ -100,7 +100,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = {
-    // toggleNavMenu
+    toggleNavMenu
 };
 export default compose(
     withRouter,

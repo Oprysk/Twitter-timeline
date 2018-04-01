@@ -1,7 +1,7 @@
 {
-  "name": "heroku-cra-node",
+  "name": "Twitter-timeline",
   "version": "1.0.0",
-  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "description": "Simple node.js & react.js app",
   "engines": {
     "node": "8.9.x"
   },
@@ -9,16 +9,19 @@
     "start": "node server",
     "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
+  "author": "Vyacheslav Oprysk",
   "cacheDirectories": [
     "node_modules",
     "react-ui/node_modules"
   ],
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "body-parser": "^1.18.2",
+    "twitter": "^1.7.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mars/heroku-cra-node.git"
+    "url": "https://github.com/Oprysk/Twitter-timeline.git"
   },
   "keywords": [
     "node",
@@ -26,6 +29,6 @@
     "create-react-app",
     "react"
   ],
-  "license": "MIT",
+  "license": "VYACH",
   "devDependencies": {}
 }

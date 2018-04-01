@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+const bodyParser = require('body-parser');
+const tweetsController = require('./twitter-controller/timeline-controller');
 
 const PORT = process.env.PORT || 5000;
 
@@ -22,13 +24,23 @@ if (cluster.isMaster) {
   const app = express();
 
   // Priority serve any static files.
-  app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+  app.use(express.static(path.resolve(__dirname, '../react-ui/build')))
+      .use(bodyParser.json())
+      .use(bodyParser.urlencoded({extended: true}))
+      .use( (req, res, next) => {
+          res.setHeader("Access-Control-Allow-Origin", "*");
+          res.setHeader("Access-Control-Allow-Methods", "*");
+          res.setHeader("Access-Control-Allow-Headers", "content-type");
+          next();
+      });
 
   // Answer API requests.
   app.get('/api', function (req, res) {
     res.set('Content-Type', 'application/json');
     res.send('{"message":"Hello from the custom server!"}');
   });
+
+  app.get('/getUsersTweets', tweetsController.getUserTweets);
 
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {

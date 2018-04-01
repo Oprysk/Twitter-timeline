@@ -1,29 +1,30 @@
 import {
-  MAIN_NAV_START,
-  MAIN_NAV_SUCCESS,
-  MAIN_NAV_FAILURE
+    MAIN_NAV_START,
+    MAIN_NAV_SUCCESS,
+    MAIN_NAV_FAILURE,
+    TWEETS_FETCH_START,
+    TWEETS_FETCH_SUCCESS,
+    TWEETS_FETCH_FAILURE
 } from '../actionTypes'
-import {
-  fetchPhones as fetchPhonesApi
-} from '../api'
+import { getTweets as getTweetsApi } from '../api'
 
 
-// export const fetchUsers = () => async dispatch => {
-//     dispatch({type: AT.USER_FETCH_START});
-//     try {
-//         const users = await fetchUsersApi();
-//         dispatch({
-//             type: AT.USER_FETCH_SUCCESS,
-//             payload: users
-//         })
-//     } catch (err) {
-//         dispatch({
-//             type: AT.USER_FETCH_FAILURE,
-//             payload: err,
-//             error: true
-//         })
-//     }
-// };
+export const getTweets = (data) => async dispatch => {
+    dispatch({type: TWEETS_FETCH_START});
+    try {
+        const tweets = await getTweetsApi(data);
+        dispatch({
+            type: TWEETS_FETCH_SUCCESS,
+            payload: tweets
+        })
+    } catch (err) {
+        dispatch({
+            type: TWEETS_FETCH_FAILURE,
+            payload: err,
+            error: true
+        })
+    }
+};
 
 export const toggleNavMenu = (data)=> async dispatch => {
     dispatch({type: MAIN_NAV_START});

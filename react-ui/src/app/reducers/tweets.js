@@ -4,14 +4,19 @@ import {
     TWEETS_FETCH_FAILURE
 } from '../actionTypes'
 
-const initialState = {}
+const initialState = {
+    loading:true
+};
 
 export default (state = initialState, {type, payload}) => {
     switch (type) {
         case TWEETS_FETCH_START:
             return state;
         case  TWEETS_FETCH_SUCCESS:
-            return {tweets: payload};
+            return {
+                tweets: payload,
+                loading: false
+            };
         case TWEETS_FETCH_FAILURE:
             return state;
         default:

@@ -13,6 +13,7 @@ import reducers from './app/reducers'
 import Layout from './app/containers/layout'
 import Dashboard from './app/containers/dashboard'
 import NotFound from './app/containers/notFound'
+import 'font-awesome/css/font-awesome.min.css';
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(thunk)

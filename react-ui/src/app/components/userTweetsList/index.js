@@ -8,11 +8,12 @@ import Paper from 'material-ui/Paper';
 import {getTweets} from '../../actions';
 import Spinner from '../spinner'
 
+const user = { userName: ''};
 
 class TweetsList extends Component {
     constructor (props) {
         super(props);
-        this.props.getTweets();
+        this.props.getTweets(user);
     }
     render () {
         let tweetsRow = [];
@@ -48,9 +49,10 @@ class TweetsList extends Component {
 
 }
 const mapStateToProps = (state, ownProps) => {
+    console.log(state)
     return {
         tweets: state.tweets,
-        loading: state.loading
+        loading: state.tweets.loading
     }
 };
 

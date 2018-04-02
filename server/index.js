@@ -23,7 +23,6 @@ if (cluster.isMaster) {
 } else {
   const app = express();
 
-  // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, '../react-ui/build')))
       .use(bodyParser.json())
       .use(bodyParser.urlencoded({extended: true}))
@@ -34,12 +33,7 @@ if (cluster.isMaster) {
           next();
       });
 
-  // Answer API requests.
-  app.get('/api', function (req, res) {
-    res.set('Content-Type', 'application/json');
-    res.send('{"message":"Hello from the custom server!"}');
-  });
-
+  // Request from Twitter API
   app.get('/getUsersTweets', tweetsController.getUserTweets);
 
   // All remaining requests return the React app, so it can handle routing.

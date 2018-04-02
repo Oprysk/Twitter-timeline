@@ -48,8 +48,7 @@ class TweetsList extends Component {
 
 
 }
-const mapStateToProps = (state, ownProps) => {
-    console.log(state)
+const mapStateToProps = (state) => {
     return {
         tweets: state.tweets,
         loading: state.tweets.loading

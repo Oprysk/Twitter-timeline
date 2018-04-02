@@ -15,7 +15,7 @@ class Dashboard extends Component {
                 <div className="col-md-12">
                     <ExpansionPanel title={'Users Tweets'} component={<UsersTweetsForm />} />
                 </div>
-                <div className="col-md-12">
+                <div className="col-md-12" style={{textAlign: 'center'}}>
                     <TweetsList style={{margin: '30px 0px'}} />
                 </div>
             </div>

@@ -2,12 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import {compose} from 'redux'
+import {Timeline} from 'react-twitter-widgets'
 
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import {getTweets} from '../../actions';
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
 import Spinner from '../spinner'
 
 
@@ -17,46 +15,32 @@ class TweetsList extends Component {
         this.props.getTweets();
     }
     render () {
-        console.log(this.props.tweets.tweets)
-        let tableRows = [];
+        let tweetsRow = [];
         if(this.props.tweets.tweets){
-            tableRows = this.props.tweets.tweets.map((tweet) =>
-                <TableRow key={tweet.id}>
-                    <TableCell style={{fontSize:"16px"}}>{tweet.created_at}</TableCell>
-                    <TableCell style={{fontSize:"16px"}}>{tweet.text}</TableCell>
-                    <TableCell style={{fontSize:"16px"}}>{tweet.user.name}</TableCell>
-                    <TableCell style={{fontSize:"16px"}}>{tweet.source}</TableCell>
-                    <TableCell style={{fontSize:"16px"}}><img src={tweet.user.profile_image_url}/></TableCell>
-                    <TableCell numeric>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon onClick={() =>  this.props.deleteUser(tweet)}   />
-                        </IconButton>
-                    </TableCell>
-                </TableRow>
+            tweetsRow = this.props.tweets.tweets.map((tweet) =>
+                    <Timeline
+                        key={tweet.id}
+                        dataSource={{
+                            sourceType: 'profile',
+                            screenName: tweet.user.screen_name
+                        }}
+                        options={{
+                            username: tweet.user.screen_name,
+                            height: '700',
+                            theme: 'dark'
+                        }}
+                    />
             );
         }
-        console.log(tableRows)
-        const TableU = (
+        const TweetsContainer = (
             <div>
                 <Paper style={{margin:"30px 0px"}}>
-                    <Table className={'table-font'}>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell style={{fontSize:"18px"}}>Name</TableCell>
-                                <TableCell style={{fontSize:"18px"}}>Email</TableCell>
-                                <TableCell style={{fontSize:"18px"}}>Role</TableCell>
-                                <TableCell style={{fontSize:"18px"}}> </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {tableRows}
-                        </TableBody>
-                    </Table>
+                    {tweetsRow}
                 </Paper>
             </div>
         );
         return (
-            <Spinner loading={this.props.loading} component={TableU} />
+            <Spinner loading={this.props.loading} component={TweetsContainer} />
         );
     }
 

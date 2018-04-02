@@ -31,7 +31,7 @@ class UsersTweetsForm extends Component  {
                     label="User Name"
                     margin="none"
                 />
-                <Button style={{margin: '20px 0px'}} onClick={this.getTweets} raised color="primary">
+                <Button style={{margin: '20px'}} onClick={this.getTweets} variant="raised" color="primary">
                     Get User Tweets
                 </Button>
             </div>

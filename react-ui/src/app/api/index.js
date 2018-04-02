@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const baseUrl = 'http://localhost:5000/';
+const baseUrl = 'https://vyach-timeline.herokuapp.com/';
 
 
 export const getTweets = async (data) => {

@@ -12,10 +12,8 @@ class UsersTweetsForm extends Component  {
             userName: ''
         };
         this.getTweets = this.getTweets.bind(this);
-
     }
     getTweets(){
-        console.log(this.name.value);
         this.props.getTweets(
             {
                 userName: this.name.value,

@@ -14,7 +14,7 @@ export default (state = initialState, {type, payload}) => {
             return state;
         case  TWEETS_FETCH_SUCCESS:
             return {
-                tweets: payload,
+                data: payload,
                 loading: false
             };
         case TWEETS_FETCH_FAILURE:

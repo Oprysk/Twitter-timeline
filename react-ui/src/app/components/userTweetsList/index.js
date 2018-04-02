@@ -17,8 +17,8 @@ class TweetsList extends Component {
     }
     render () {
         let tweetsRow = [];
-        if(this.props.tweets.tweets){
-            tweetsRow = this.props.tweets.tweets.map((tweet) =>
+        if(this.props.tweets){
+            tweetsRow = this.props.tweets.map((tweet) =>
                     <Timeline
                         key={tweet.id}
                         dataSource={{
@@ -50,7 +50,7 @@ class TweetsList extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        tweets: state.tweets,
+        tweets: state.tweets.data,
         loading: state.tweets.loading
     }
 };

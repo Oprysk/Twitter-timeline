@@ -28,3 +28,8 @@ npm install
 # Start the server
 npm start
 ```
+
+### Deploy To Heroku.com
+```bash
+Push your changes on github to master branch. Build will be started automatically
+```
